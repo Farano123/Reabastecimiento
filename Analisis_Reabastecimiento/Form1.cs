@@ -566,8 +566,13 @@ namespace Analisis_Reabastecimiento
                         {
                             DataTable dt = new DataTable();  // Optimización: cargar datos en DataTable
                             dt.Load(reader);
-
-                            foreach (DataRow row in dt.Rows)
+                            StringBuilder sb = new StringBuilder();
+                            foreach (DataColumn row in dt.Columns)
+                            {
+                                sb.Append(row.ToString() + "\n");
+                            }
+                            MessageBox.Show(sb.ToString()); 
+                                foreach (DataRow row in dt.Rows)
                             {
                                 if (string.IsNullOrEmpty(comboProvedor.Text))
                                 {
@@ -597,6 +602,7 @@ namespace Analisis_Reabastecimiento
                                     horizonte.ToString(),
                                     row[prvlg].ToString(),
                                     row[exist].ToString(),
+                                    row["Exist_TRA1011"].ToString(),
                                     row[orden].ToString(),
                                     row[compro].ToString(),
                                     ventaDiaria.ToString(),
