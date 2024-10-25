@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|c:\\users\\fernando\\desktop\\analisis reabastecimiento\\analisis_reabastecimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|solutionrelative:analisis_reabastecimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\analisis_reabastecimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|solutionrelative:analisis_reabastecimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\analisis_reabastecimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|solutionrelative:analisis_reabastecimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\analisis_reabastecimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F2064EC6-09DA-4D7E-955A-C92E13E74C00}|Analisis_Reabastecimiento\\Analisis_Reabastecimiento.csproj|solutionrelative:analisis_reabastecimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form2.cs",
+              "RelativeDocumentMoniker": "Analisis_Reabastecimiento\\Form2.cs",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form2.cs",
+              "RelativeToolTip": "Analisis_Reabastecimiento\\Form2.cs",
+              "ViewState": "AQIAAMYAAAAAAAAAAAAQwCABAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:21:36.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form1.cs",
+              "RelativeDocumentMoniker": "Analisis_Reabastecimiento\\Form1.cs",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form1.cs",
+              "RelativeToolTip": "Analisis_Reabastecimiento\\Form1.cs",
+              "ViewState": "AQIAALwAAAAAAAAAAAAuwLAAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T18:46:36.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form2.cs",
+              "RelativeDocumentMoniker": "Analisis_Reabastecimiento\\Form2.cs",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Analisis_Reabastecimiento\\Form2.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T18:41:44.487Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form1.cs",
+              "RelativeDocumentMoniker": "Analisis_Reabastecimiento\\Form1.cs",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\Analisis Reabastecimiento\\Analisis_Reabastecimiento\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Analisis_Reabastecimiento\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T18:41:42.302Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
