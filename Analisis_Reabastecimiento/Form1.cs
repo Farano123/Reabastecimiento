@@ -397,25 +397,32 @@ namespace Analisis_Reabastecimiento
             printDoc.Print();
         }
 
-        // FUNCION QUE ABRE EL ARCHIVO INSTANTANEAMENTE CUANDO ES MANDADO A IMPRIMIR POR EL BOTON DE IMPRESION
+        // FUNCION QUE ABRE EL ARCHIVO DE TEXTO INSTANTANEAMENTE CUANDO SE MANDA A IMPRIMIR POR EL BOTON DE IMPRESION
         private void openFileToPrint()
-        {
-            Process.Start("notepad.exe", Path.Combine(pathToPrint, "AnalisisReabastesimiento.txt"));
-        }
-
-        private void openFileToPrintExcel(string excelFile)
         {
             try
             {
-                Process.Start("excel.exe", Path.Combine(pathToPrint, excelFile));
-            }
-            catch
-            {
-                MessageBox.Show("ACEPTA ABRIR EL ARCHIVO");
-                Process.Start("excel.exe", Path.Combine(pathToPrint, excelFile));
-            }
+                string filePath = Path.Combine(pathToPrint, "AnalisisReabastesimiento.txt");
 
+                // Verificar si el archivo existe antes de intentar abrirlo
+                if (File.Exists(filePath))
+                {
+                    Process.Start("notepad.exe", filePath);
+                }
+                else
+                {
+                    MessageBox.Show("El archivo no existe: " + filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al intentar abrir el archivo: {ex.Message}");
+            }
         }
+
+        // FUNCION QUE ABRE EL ARCHIVO EXCEL INSTANTANEAMENTE CUANDO SE MANDA A IMPRIMIR POR EL BOTON DE IMPRESION
+        
+
 
         // RESPUESTA AL BOTON QUE OBTIENE LA CONTRASEÑA INGRESADA POR EL USUARIO PARA LIBERAR LA OPCION DE IMPRESION DISPONIBLE
         private void botonDePassword_Click(object sender, EventArgs e)
@@ -547,7 +554,7 @@ namespace Analisis_Reabastecimiento
             {
                 using (SqlConnection conn = new SqlConnection("Data Source=192.168.120.13; Initial Catalog=SistemasTI; User ID=sa; Password=Pass@123x"))
                 {
-                    using (SqlCommand cmd = new SqlCommand("spNvoDinamico_2CL", conn))
+                    using (SqlCommand cmd = new SqlCommand("spNvoDinamico_3CL", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@FechaD", fechaInicial);
@@ -1247,7 +1254,7 @@ namespace Analisis_Reabastecimiento
             }
 
             using (SqlConnection conn = new SqlConnection("Data Source=192.168.120.13; Initial Catalog=SistemasTI; User ID=sa; Password=Pass@123x"))
-            using (SqlCommand cmd = new SqlCommand("spNvoDinamico_2CL", conn))
+            using (SqlCommand cmd = new SqlCommand("spNvoDinamico_3CL", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@FechaD", fechaInicial);
@@ -1322,84 +1329,125 @@ namespace Analisis_Reabastecimiento
 
         private void buttonExcel_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-
-            //Tests
-
-            string[] rows = new string[20];
-
-            string datesSelected = random.Next(1, 100000).ToString();
-            string nameOfFile = "AnalisisReabastesimiento-" + datesSelected + ".xlsx";
-
-            // Obtener la ruta del escritorio del usuario actual
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-            using (ExcelPackage excel = new ExcelPackage())
+            try
             {
-                excel.Workbook.Worksheets.Add("Worksheet1");
+                Random random = new Random();
+                string datesSelected = random.Next(1, 100000).ToString();
+                string nameOfFile = "AnalisisReabastesimiento-" + datesSelected + ".xlsx";
 
-                var headerRow = new List<string[]>()
-        {
-            new string[] {"ITEM CODE", "DESCRIPCION", "UNIDAD MEDIDA" , "ALMACEN" , "CANT_PROM_MENSUAL", " PRVLG ", "CANT_INV", " STOCK_CEDIS", " " ,"FECHAS SELECCIONADA: " + fechaInicialTimePicker1.Text + " A " + fechaFinalTimePicker1.Text}
-        };
+                // Obtener la ruta del escritorio del usuario actual
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string fullFilePath = Path.Combine(desktopPath, nameOfFile);
 
-                // Determinar el rango del encabezado (ejemplo: A1:D1)
-                string headerRange = "A1:" + Char.ConvertFromUtf32(headerRow[0].Length + 64) + "1";
-                var worksheet = excel.Workbook.Worksheets["Worksheet1"];
-
-                // Popular los datos del encabezado
-                worksheet.Cells[headerRange].LoadFromArrays(headerRow);
-
-                // Guardar el archivo en la ruta del escritorio
-                FileInfo excelFile = new FileInfo(Path.Combine(desktopPath, nameOfFile));
-                var cellData = new List<string[]>();
-
-                int gridTwoCount = dataGridView2.RowCount;
-
-                if (gridTwoCount > 0)
+                // Verificar si la ruta es válida (que no sea demasiado larga o tenga caracteres inválidos)
+                if (fullFilePath.Length > 218)
                 {
-                    foreach (DataGridViewRow r in this.dataGridView2.Rows)
-                    {
-                        cellData.Add(new string[]
-                        {
-                    this.dataGridView2.Rows[r.Index].Cells[0].Value.ToString(),
-                    this.dataGridView2.Rows[r.Index].Cells[1].Value.ToString(),
-                    this.dataGridView2.Rows[r.Index].Cells[2].Value.ToString(),
-                    this.dataGridView2.Rows[r.Index].Cells[3].Value.ToString(),
-                    this.dataGridView2.Rows[r.Index].Cells[4].Value.ToString(),
-                    this.dataGridView2.Rows[r.Index].Cells[6].Value.ToString(),
-                    this.dataGridView2.Rows[r.Index].Cells[7].Value.ToString(),
-                    this.dataGridView2.Rows[r.Index].Cells[12].Value.ToString()
-                        });
-                    }
-                }
-                else if (gridTwoCount < 1)
-                {
-                    foreach (DataGridViewRow r in this.dataGridView1.Rows)
-                    {
-                        cellData.Add(new string[]
-                        {
-                    this.dataGridView1.Rows[r.Index].Cells[0].Value.ToString(),
-                    this.dataGridView1.Rows[r.Index].Cells[1].Value.ToString(),
-                    this.dataGridView1.Rows[r.Index].Cells[2].Value.ToString(),
-                    this.dataGridView1.Rows[r.Index].Cells[3].Value.ToString(),
-                    this.dataGridView1.Rows[r.Index].Cells[4].Value.ToString(),
-                    this.dataGridView1.Rows[r.Index].Cells[6].Value.ToString(),
-                    this.dataGridView1.Rows[r.Index].Cells[7].Value.ToString(),
-                    this.dataGridView1.Rows[r.Index].Cells[12].Value.ToString()
-                        });
-                    }
+                    MessageBox.Show("La ruta es demasiado larga. Intenta guardar en una carpeta con un nombre más corto.");
+                    return;
                 }
 
-                worksheet.Cells[2, 1].LoadFromArrays(cellData);
-                worksheet.Cells.AutoFitColumns();
+                FileInfo excelFile = new FileInfo(fullFilePath);
 
-                // Guardar el archivo en el escritorio
-                excel.SaveAs(excelFile);
+                // Verificar si el archivo ya existe y no puede ser sobrescrito
+                if (excelFile.Exists)
+                {
+                    MessageBox.Show("El archivo ya existe y no puede ser sobrescrito.");
+                    return;
+                }
+
+                using (ExcelPackage excel = new ExcelPackage())
+                {
+                    excel.Workbook.Worksheets.Add("Worksheet1");
+
+                    var headerRow = new List<string[]>()
+            {
+                new string[] {"ITEM CODE", "DESCRIPCION", "UNIDAD MEDIDA", "ALMACEN", "CANT_PROM_MENSUAL", "PRVLG", "CANT_INV", "STOCK_CEDIS", "FECHA SELECCIONADA: " + fechaInicialTimePicker1.Text + " A " + fechaFinalTimePicker1.Text}
+            };
+
+                    string headerRange = "A1:" + Char.ConvertFromUtf32(headerRow[0].Length + 64) + "1";
+                    var worksheet = excel.Workbook.Worksheets["Worksheet1"];
+
+                    // Popular los datos del encabezado
+                    worksheet.Cells[headerRange].LoadFromArrays(headerRow);
+
+                    var cellData = new List<string[]>();
+                    int gridTwoCount = dataGridView2.RowCount;
+
+                    if (gridTwoCount > 0)
+                    {
+                        foreach (DataGridViewRow r in this.dataGridView2.Rows)
+                        {
+                            cellData.Add(new string[]
+                            {
+                        r.Cells[0]?.Value?.ToString() ?? "",
+                        r.Cells[1]?.Value?.ToString() ?? "",
+                        r.Cells[2]?.Value?.ToString() ?? "",
+                        r.Cells[3]?.Value?.ToString() ?? "",
+                        r.Cells[4]?.Value?.ToString() ?? "",
+                        r.Cells[6]?.Value?.ToString() ?? "",
+                        r.Cells[7]?.Value?.ToString() ?? "",
+                        r.Cells[12]?.Value?.ToString() ?? ""
+                            });
+                        }
+                    }
+                    else if (gridTwoCount < 1)
+                    {
+                        foreach (DataGridViewRow r in this.dataGridView1.Rows)
+                        {
+                            cellData.Add(new string[]
+                            {
+                        r.Cells[0]?.Value?.ToString() ?? "",
+                        r.Cells[1]?.Value?.ToString() ?? "",
+                        r.Cells[2]?.Value?.ToString() ?? "",
+                        r.Cells[3]?.Value?.ToString() ?? "",
+                        r.Cells[4]?.Value?.ToString() ?? "",
+                        r.Cells[6]?.Value?.ToString() ?? "",
+                        r.Cells[7]?.Value?.ToString() ?? "",
+                        r.Cells[12]?.Value?.ToString() ?? ""
+                            });
+                        }
+                    }
+
+                    // Popular los datos de la tabla
+                    worksheet.Cells[2, 1].LoadFromArrays(cellData);
+                    worksheet.Cells.AutoFitColumns();
+
+                    // Guardar el archivo en el escritorio
+                    excel.SaveAs(excelFile);
+                }
+
+                // Mensaje de confirmación con botones "Abrir" y "Cerrar"
+                DialogResult result = MessageBox.Show("Archivo descargado correctamente. ¿Deseas abrirlo?", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                // Si el usuario elige "Sí", abrir el archivo
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Process.Start(fullFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"No se pudo abrir el archivo: {ex.Message}");
+                    }
+                }
             }
-
-            openFileToPrintExcel(nameOfFile); // Función para abrir o imprimir el archivo si es necesario
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show("No tienes permisos para guardar el archivo en esta ubicación. Intenta guardarlo en otro lugar o verificar los permisos de la carpeta.");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Ocurrió un error al intentar acceder al archivo. Asegúrate de que no esté abierto en otra aplicación.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}");
+            }
         }
+
+
+
 
 
         private void buttonUpload_Click(object sender, EventArgs e)
