@@ -182,7 +182,8 @@
             this.vtaDiaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diasInventario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockCedis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pedidoCedis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PEDIDO_CEDIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C2021 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uBasico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uAbc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -221,7 +222,8 @@
             this.vtaDiaria,
             this.diasInventario,
             this.stockCedis,
-            this.pedidoCedis,
+            this.PEDIDO_CEDIS,
+            this.C2021,
             this.uBasico,
             this.uAbc,
             this.clasificacion,
@@ -1719,13 +1721,21 @@
             this.stockCedis.ReadOnly = true;
             this.stockCedis.Width = 150;
             // 
-            // pedidoCedis
+            // PEDIDO_CEDIS
             // 
-            this.pedidoCedis.HeaderText = "PEDIDO_CEDIS";
-            this.pedidoCedis.MinimumWidth = 8;
-            this.pedidoCedis.Name = "pedidoCedis";
-            this.pedidoCedis.ReadOnly = true;
-            this.pedidoCedis.Width = 150;
+            this.PEDIDO_CEDIS.HeaderText = "PEDIDO_3011";
+            this.PEDIDO_CEDIS.MinimumWidth = 8;
+            this.PEDIDO_CEDIS.Name = "PEDIDO_CEDIS";
+            this.PEDIDO_CEDIS.ReadOnly = true;
+            this.PEDIDO_CEDIS.Width = 150;
+            // 
+            // C2021
+            // 
+            this.C2021.HeaderText = "PEDIDO_2021";
+            this.C2021.MinimumWidth = 8;
+            this.C2021.Name = "C2021";
+            this.C2021.ReadOnly = true;
+            this.C2021.Width = 150;
             // 
             // uBasico
             // 
@@ -1991,7 +2001,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vtaDiaria;
         private System.Windows.Forms.DataGridViewTextBoxColumn diasInventario;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockCedis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pedidoCedis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_CEDIS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C2021;
         private System.Windows.Forms.DataGridViewTextBoxColumn uBasico;
         private System.Windows.Forms.DataGridViewTextBoxColumn uAbc;
         private System.Windows.Forms.DataGridViewTextBoxColumn clasificacion;

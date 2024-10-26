@@ -554,7 +554,7 @@ namespace Analisis_Reabastecimiento
             {
                 using (SqlConnection conn = new SqlConnection("Data Source=192.168.120.13; Initial Catalog=SistemasTI; User ID=sa; Password=Pass@123x"))
                 {
-                    using (SqlCommand cmd = new SqlCommand("spNvoDinamico_3CL", conn))
+                    using (SqlCommand cmd = new SqlCommand("spNvoDinamico_4CL", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@FechaD", fechaInicial);
@@ -603,7 +603,8 @@ namespace Analisis_Reabastecimiento
                                     ventaDiaria.ToString(),
                                     diasDeInventarioString,
                                     row["Exist_3011"].ToString(),
-                               
+                                    row["Orden_3011"].ToString(),
+                                    row["Orden_2021"].ToString(),
                                     row["Basico"].ToString(),
                                     row["ABC"].ToString(),
                                     row["Clasificacion"].ToString(),
@@ -647,12 +648,14 @@ namespace Analisis_Reabastecimiento
                                     horizonte.ToString(),
                                     row[prvlg].ToString(),
                                     row[exist].ToString(),
+                                    row["Exist_TRA1011"].ToString(),
                                     row[orden].ToString(),
                                     row[compro].ToString(),
                                     ventaDiaria.ToString(),
                                     diasDeInventarioString,
                                     row["Exist_3011"].ToString(),
-                                  
+                                    row["Orden_3011"].ToString(),
+                                    row["Orden_2021"].ToString(),
                                     row["Basico"].ToString(),
                                     row["ABC"].ToString(),
                                     row["Clasificacion"].ToString(),
@@ -1236,7 +1239,7 @@ namespace Analisis_Reabastecimiento
                 MessageBox.Show(exc.Message);
             }
         }
-
+        //Comentario
         private void mostrarTodasLasSucursales(string fechaInicial, string fechaFinal, string diasDeDiferencia)
         {
             dataGridView4.Rows.Clear();
@@ -1255,7 +1258,7 @@ namespace Analisis_Reabastecimiento
             }
 
             using (SqlConnection conn = new SqlConnection("Data Source=192.168.120.13; Initial Catalog=SistemasTI; User ID=sa; Password=Pass@123x"))
-            using (SqlCommand cmd = new SqlCommand("spNvoDinamico_3CL", conn))
+            using (SqlCommand cmd = new SqlCommand("spNvoDinamico_4CL", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@FechaD", fechaInicial);
