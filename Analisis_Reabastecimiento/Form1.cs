@@ -507,7 +507,36 @@ namespace Analisis_Reabastecimiento
                 numeroDeProveedor = numeroProv[numeroProv.Length - 1].ToString();
             }
 
-            switch(categoria)
+            string sucursal = comboSucursal.Text;
+
+
+            switch(sucursal)
+            {
+                case "1011":
+                    sucursal = "Exist_TRA1011";
+                    break;
+                 case "1021":
+                    sucursal = "Exist_TRA1021";
+                    break;
+                case "1031":
+                    sucursal = "Exist_TRA1031";
+                    break;
+                case "1041":
+                    sucursal = "Exist_TRA1411";
+                    break;
+                case "1051":
+                    sucursal = "Exist_TRA1051";
+                    break;
+                case "2011":
+                    sucursal = "Exist_TRA2011";
+                    break;
+                case "1061":
+                    sucursal = "Exist_TRA1061";
+                    break;
+            }
+
+
+            switch (categoria)
             {
                 case "01-CONSTR Y OBRA NGA":
                     catego = "125";
