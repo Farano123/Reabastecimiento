@@ -748,7 +748,6 @@ namespace Analisis_Reabastecimiento
 
 
 
-
         private void pruebaBase_Click(object sender, EventArgs e)
         {
             dataGridView2.Rows.Clear();
@@ -775,8 +774,8 @@ namespace Analisis_Reabastecimiento
             foreach (DataGridViewRow r in this.dataGridView1.Rows)
             {
                 bool agregarFila = false;
-                int diasEnTabla = Int32.Parse(r.Cells[11].Value.ToString());
-                string[] row = new string[20]; // Aumentar el tamaño si agregas más columnas (20 + 1 para la columna de tránsito "Trancito")
+                int diasEnTabla = Int32.Parse(r.Cells[12].Value.ToString()); // Cambié el índice a 12
+                string[] row = new string[22]; // Ajusté a la longitud de la fila
 
                 // Si no hay ningún clasificador seleccionado
                 if (clasificadorSeleccionado.Count == 0)
@@ -785,14 +784,14 @@ namespace Analisis_Reabastecimiento
                     if (comboBasico.Text != "" && textBoxDiasInv.Text != "")
                     {
                         int diaInsertado = Int32.Parse(textBoxDiasInv.Text);
-                        if (r.Cells[14].Value.ToString().StartsWith(this.comboBasico.Text.Trim()) && diasEnTabla < diaInsertado)
+                        if (r.Cells[16].Value.ToString().StartsWith(this.comboBasico.Text.Trim()) && diasEnTabla < diaInsertado) // Índice actualizado a 16
                         {
                             agregarFila = true;
                         }
                     }
                     else if (comboBasico.Text != "" && textBoxDiasInv.Text == "")
                     {
-                        if (r.Cells[14].Value.ToString().StartsWith(this.comboBasico.Text.Trim()))
+                        if (r.Cells[16].Value.ToString().StartsWith(this.comboBasico.Text.Trim())) // Índice actualizado a 16
                         {
                             agregarFila = true;
                         }
@@ -817,16 +816,16 @@ namespace Analisis_Reabastecimiento
                     if (comboBasico.Text != "" && textBoxDiasInv.Text != "")
                     {
                         int diaInsertado = Int32.Parse(textBoxDiasInv.Text);
-                        if (r.Cells[14].Value.ToString().StartsWith(this.comboBasico.Text.Trim()) &&
-                            clasificadorSeleccionado.Contains(r.Cells[16].Value.ToString()) && diasEnTabla < diaInsertado)
+                        if (r.Cells[16].Value.ToString().StartsWith(this.comboBasico.Text.Trim()) &&
+                            clasificadorSeleccionado.Contains(r.Cells[18].Value.ToString()) && diasEnTabla < diaInsertado) // Índices actualizados
                         {
                             agregarFila = true;
                         }
                     }
                     else if (comboBasico.Text != "" && textBoxDiasInv.Text == "")
                     {
-                        if (r.Cells[14].Value.ToString().StartsWith(this.comboBasico.Text.Trim()) &&
-                            clasificadorSeleccionado.Contains(r.Cells[16].Value.ToString()))
+                        if (r.Cells[16].Value.ToString().StartsWith(this.comboBasico.Text.Trim()) &&
+                            clasificadorSeleccionado.Contains(r.Cells[18].Value.ToString())) // Índices actualizados
                         {
                             agregarFila = true;
                         }
@@ -834,14 +833,14 @@ namespace Analisis_Reabastecimiento
                     else if (comboBasico.Text == "" && textBoxDiasInv.Text != "")
                     {
                         int diaInsertado = Int32.Parse(textBoxDiasInv.Text);
-                        if (clasificadorSeleccionado.Contains(r.Cells[16].Value.ToString()) && diasEnTabla < diaInsertado)
+                        if (clasificadorSeleccionado.Contains(r.Cells[18].Value.ToString()) && diasEnTabla < diaInsertado) // Índice actualizado
                         {
                             agregarFila = true;
                         }
                     }
                     else if (comboBasico.Text == "" && textBoxDiasInv.Text == "")
                     {
-                        if (clasificadorSeleccionado.Contains(r.Cells[16].Value.ToString()))
+                        if (clasificadorSeleccionado.Contains(r.Cells[18].Value.ToString())) // Índice actualizado
                         {
                             agregarFila = true;
                         }
@@ -850,13 +849,32 @@ namespace Analisis_Reabastecimiento
 
                 if (agregarFila)
                 {
-                    // Construir fila incluyendo la columna de tránsito (por ejemplo, la columna 13 de dataGridView1)
-                    for (int i = 0; i < 20; i++) // Ajusta la longitud de la fila según sea necesario
-                    {
-                        row[i] = r.Cells[i].Value.ToString();
-                    }
+                    // Construir fila con el nuevo orden
+                    row[0] = r.Cells[0].Value.ToString();
+                    row[1] = r.Cells[1].Value.ToString();
+                    row[2] = r.Cells[2].Value.ToString();
+                    row[3] = r.Cells[3].Value.ToString();
+                    row[4] = r.Cells[4].Value.ToString();
+                    row[5] = r.Cells[5].Value.ToString();
+                    row[6] = r.Cells[6].Value.ToString();
+                    row[7] = r.Cells[7].Value.ToString();
+                    row[8] = r.Cells[8].Value.ToString();
+                    row[9] = r.Cells[9].Value.ToString();
+                    row[10] = r.Cells[10].Value.ToString();
+                    row[11] = r.Cells[11].Value.ToString();   
+                    row[12] = r.Cells[12].Value.ToString(); // Días de inventario
+                    row[13] = r.Cells[13].Value.ToString();
+                    row[14] = r.Cells[14].Value.ToString();
+                    row[15] = r.Cells[15].Value.ToString();
+                    row[16] = r.Cells[16].Value.ToString();
+                    row[17] = r.Cells[17].Value.ToString();
+                    row[18] = r.Cells[18].Value.ToString();
+                    row[19] = r.Cells[19].Value.ToString();
+                    row[20] = r.Cells[20].Value.ToString();
+                    row[21] = r.Cells[21].Value.ToString();
 
-             
+                    dataGridView2.Rows.Add(row);
+
                     // Colorear fila si los días de inventario son <= 8
                     if (diasEnTabla <= 8)
                     {
@@ -937,7 +955,8 @@ namespace Analisis_Reabastecimiento
                     dataGridView1.SelectedCells[18].Value.ToString(),
                     dataGridView1.SelectedCells[19].Value.ToString(),
                     dataGridView1.SelectedCells[20].Value.ToString(),
-                   
+                    dataGridView1.SelectedCells[21].Value.ToString(),
+
                         };
 
                         dataGridView2.Rows.Add(rows);
@@ -1002,12 +1021,14 @@ namespace Analisis_Reabastecimiento
                     dataGridView1.SelectedCells[17].Value.ToString(),
                     dataGridView1.SelectedCells[18].Value.ToString(),
                     dataGridView1.SelectedCells[19].Value.ToString(),
-                   
+                    dataGridView1.SelectedCells[20].Value.ToString(),
+                    dataGridView1.SelectedCells[21].Value.ToString(),
+
                         };
 
                         dataGridView2.Rows.Add(rows);
 
-                        string diasDeInventarioString = dataGridView1.SelectedCells[10].Value.ToString();
+                        string diasDeInventarioString = dataGridView1.SelectedCells[12].Value.ToString();
                         int diasDeInventarioNumero = Int32.Parse(diasDeInventarioString);
 
                         if (diasDeInventarioNumero <= 8)
