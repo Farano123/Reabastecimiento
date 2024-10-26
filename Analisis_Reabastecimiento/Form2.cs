@@ -228,78 +228,105 @@ namespace Analisis_Reabastecimiento
 
         private void bottonExcel_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-
-            string[] rows = new string[20];
-
-            //string datesSelected = random.Next(1, 100000).ToString();
-            string nameOfFile = "Seguimiento-" + comboBoxFolios.Text + ".xlsx";
-
-            // Obtener la ruta del escritorio del usuario actual
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-            using (ExcelPackage excel = new ExcelPackage())
-            {
-                excel.Workbook.Worksheets.Add("Worksheet1");
-
-                var headerRow = new List<string[]>()
-        {
-            new string[] {"ITEM CODE", "DESCRIPCION", "UNIDAD MEDIDA", "ALMACEN", "CANT_PROM_MENSUAL", "PRVLG", "CANT_INV", "STOCK ACTUAL", "STOCK_CEDIS", "FECHA", "SURTIDO", "FOLIO", "FECHA: " + dateTimePicker1Form2.Value.ToString()}
-        };
-
-                // Determinar el rango del encabezado (ejemplo: A1:D1)
-                string headerRange = "A1:" + Char.ConvertFromUtf32(headerRow[0].Length + 64) + "1";
-                var worksheet = excel.Workbook.Worksheets["Worksheet1"];
-
-                // Cargar los datos del encabezado
-                worksheet.Cells[headerRange].LoadFromArrays(headerRow);
-
-                // Guardar el archivo en la ruta del escritorio
-                FileInfo excelFile = new FileInfo(Path.Combine(desktopPath, nameOfFile));
-                var cellData = new List<string[]>();
-
-                foreach (DataGridViewRow r in this.dataGridView1From2.Rows)
-                {
-                    cellData.Add(new string[]
-                    {
-                this.dataGridView1From2.Rows[r.Index].Cells[0].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[1].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[2].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[3].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[4].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[5].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[6].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[7].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[8].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[9].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[10].Value.ToString(),
-                this.dataGridView1From2.Rows[r.Index].Cells[11].Value.ToString()
-                    });
-                }
-
-                worksheet.Cells[2, 1].LoadFromArrays(cellData);
-                worksheet.Cells.AutoFitColumns();
-
-                // Guardar el archivo en el escritorio
-                excel.SaveAs(excelFile);
-            }
-
-            openFileToPrintExcel(nameOfFile); // Función para abrir o imprimir el archivo si es necesario
-        }
-
-
-        private void openFileToPrintExcel(string excelFile)
-        {
             try
             {
-                Process.Start("excel.exe", Path.Combine(pathToPrint, excelFile));
-            }
-            catch
-            {
-                MessageBox.Show("ACEPTA ABRIR EL ARCHIVO");
-                Process.Start("excel.exe", Path.Combine(pathToPrint, excelFile));
-            }
+                string nameOfFile = "Seguimiento-" + comboBoxFolios.Text + ".xlsx";
 
+                // Obtener la ruta del escritorio del usuario actual
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string fullFilePath = Path.Combine(desktopPath, nameOfFile);
+
+                // Verificar si la ruta es válida (que no sea demasiado larga o tenga caracteres inválidos)
+                if (fullFilePath.Length > 218)
+                {
+                    MessageBox.Show("La ruta es demasiado larga. Intenta guardar en una carpeta con un nombre más corto.");
+                    return;
+                }
+
+                FileInfo excelFile = new FileInfo(fullFilePath);
+
+                // Verificar si el archivo ya existe y no puede ser sobrescrito
+                if (excelFile.Exists)
+                {
+                    MessageBox.Show("El archivo ya existe y no puede ser sobrescrito.");
+                    return;
+                }
+
+                using (ExcelPackage excel = new ExcelPackage())
+                {
+                    excel.Workbook.Worksheets.Add("Worksheet1");
+
+                    var headerRow = new List<string[]>()
+            {
+                new string[] { "ITEM CODE", "DESCRIPCION", "UNIDAD MEDIDA", "ALMACEN", "CANT_PROM_MENSUAL", "PRVLG", "CANT_INV", "STOCK ACTUAL", "STOCK_CEDIS", "FECHA", "SURTIDO", "FOLIO", "FECHA: " + dateTimePicker1Form2.Value.ToString() }
+            };
+
+                    string headerRange = "A1:" + Char.ConvertFromUtf32(headerRow[0].Length + 64) + "1";
+                    var worksheet = excel.Workbook.Worksheets["Worksheet1"];
+
+                    // Cargar los datos del encabezado
+                    worksheet.Cells[headerRange].LoadFromArrays(headerRow);
+
+                    var cellData = new List<string[]>();
+
+                    foreach (DataGridViewRow r in this.dataGridView1From2.Rows)
+                    {
+                        cellData.Add(new string[]
+                        {
+                    r.Cells[0]?.Value?.ToString() ?? "",
+                    r.Cells[1]?.Value?.ToString() ?? "",
+                    r.Cells[2]?.Value?.ToString() ?? "",
+                    r.Cells[3]?.Value?.ToString() ?? "",
+                    r.Cells[4]?.Value?.ToString() ?? "",
+                    r.Cells[5]?.Value?.ToString() ?? "",
+                    r.Cells[6]?.Value?.ToString() ?? "",
+                    r.Cells[7]?.Value?.ToString() ?? "",
+                    r.Cells[8]?.Value?.ToString() ?? "",
+                    r.Cells[9]?.Value?.ToString() ?? "",
+                    r.Cells[10]?.Value?.ToString() ?? "",
+                    r.Cells[11]?.Value?.ToString() ?? ""
+                        });
+                    }
+
+                    worksheet.Cells[2, 1].LoadFromArrays(cellData);
+                    worksheet.Cells.AutoFitColumns();
+
+                    // Guardar el archivo en el escritorio
+                    excel.SaveAs(excelFile);
+                }
+
+                // Mensaje de confirmación con botones "Abrir" y "Cerrar"
+                DialogResult result = MessageBox.Show("Archivo descargado correctamente. ¿Deseas abrirlo?", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                // Si el usuario elige "Sí", abrir el archivo
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Process.Start(fullFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"No se pudo abrir el archivo: {ex.Message}");
+                    }
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show("No tienes permisos para guardar el archivo en esta ubicación. Intenta guardarlo en otro lugar o verificar los permisos de la carpeta.");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Ocurrió un error al intentar acceder al archivo. Asegúrate de que no esté abierto en otra aplicación.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}");
+            }
         }
-    } 
+
+
+
+
+    }
 }

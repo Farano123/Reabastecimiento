@@ -30,15 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.dataGridView1From2 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelFecha = new System.Windows.Forms.Label();
-            this.dateTimePicker1Form2 = new System.Windows.Forms.DateTimePicker();
-            this.labelFolios = new System.Windows.Forms.Label();
-            this.comboBoxFolios = new System.Windows.Forms.ComboBox();
-            this.buttonGuardar = new System.Windows.Forms.Button();
-            this.comboSucursal = new System.Windows.Forms.ComboBox();
-            this.labelSucursal = new System.Windows.Forms.Label();
-            this.bottonExcel = new System.Windows.Forms.Button();
             this.itemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +44,15 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.completo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelFecha = new System.Windows.Forms.Label();
+            this.dateTimePicker1Form2 = new System.Windows.Forms.DateTimePicker();
+            this.labelFolios = new System.Windows.Forms.Label();
+            this.comboBoxFolios = new System.Windows.Forms.ComboBox();
+            this.buttonGuardar = new System.Windows.Forms.Button();
+            this.comboSucursal = new System.Windows.Forms.ComboBox();
+            this.labelSucursal = new System.Windows.Forms.Label();
+            this.bottonExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1From2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -82,119 +82,12 @@
             this.Column9,
             this.Column10,
             this.completo});
-            this.dataGridView1From2.Location = new System.Drawing.Point(0, 298);
-            this.dataGridView1From2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1From2.Location = new System.Drawing.Point(0, 194);
             this.dataGridView1From2.Name = "dataGridView1From2";
             this.dataGridView1From2.RowHeadersWidth = 62;
             this.dataGridView1From2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1From2.Size = new System.Drawing.Size(2016, 812);
+            this.dataGridView1From2.Size = new System.Drawing.Size(1424, 528);
             this.dataGridView1From2.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Analisis_Reabastecimiento.Properties.Resources.LOGO_HD24;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 52);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 117);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
-            // labelFecha
-            // 
-            this.labelFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelFecha.AutoSize = true;
-            this.labelFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.ForeColor = System.Drawing.Color.White;
-            this.labelFecha.Location = new System.Drawing.Point(538, 146);
-            this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(138, 22);
-            this.labelFecha.TabIndex = 19;
-            this.labelFecha.Text = "Fecha de Folios";
-            this.labelFecha.Click += new System.EventHandler(this.fechaFinalLabel_Click);
-            // 
-            // dateTimePicker1Form2
-            // 
-            this.dateTimePicker1Form2.Location = new System.Drawing.Point(687, 146);
-            this.dateTimePicker1Form2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dateTimePicker1Form2.Name = "dateTimePicker1Form2";
-            this.dateTimePicker1Form2.Size = new System.Drawing.Size(298, 26);
-            this.dateTimePicker1Form2.TabIndex = 20;
-            this.dateTimePicker1Form2.ValueChanged += new System.EventHandler(this.dateTimePicker1Form2_ValueChanged);
-            // 
-            // labelFolios
-            // 
-            this.labelFolios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelFolios.AutoSize = true;
-            this.labelFolios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFolios.ForeColor = System.Drawing.Color.White;
-            this.labelFolios.Location = new System.Drawing.Point(1396, 148);
-            this.labelFolios.Name = "labelFolios";
-            this.labelFolios.Size = new System.Drawing.Size(58, 22);
-            this.labelFolios.TabIndex = 21;
-            this.labelFolios.Text = "Folios";
-            // 
-            // comboBoxFolios
-            // 
-            this.comboBoxFolios.FormattingEnabled = true;
-            this.comboBoxFolios.Location = new System.Drawing.Point(1466, 145);
-            this.comboBoxFolios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxFolios.Name = "comboBoxFolios";
-            this.comboBoxFolios.Size = new System.Drawing.Size(193, 28);
-            this.comboBoxFolios.TabIndex = 22;
-            this.comboBoxFolios.SelectedIndexChanged += new System.EventHandler(this.comboBoxFolios_SelectedIndexChanged);
-            // 
-            // buttonGuardar
-            // 
-            this.buttonGuardar.Location = new System.Drawing.Point(1884, 254);
-            this.buttonGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(112, 35);
-            this.buttonGuardar.TabIndex = 23;
-            this.buttonGuardar.Text = "Guardar";
-            this.buttonGuardar.UseVisualStyleBackColor = true;
-            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
-            // 
-            // comboSucursal
-            // 
-            this.comboSucursal.FormattingEnabled = true;
-            this.comboSucursal.Location = new System.Drawing.Point(1138, 145);
-            this.comboSucursal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboSucursal.Name = "comboSucursal";
-            this.comboSucursal.Size = new System.Drawing.Size(193, 28);
-            this.comboSucursal.TabIndex = 24;
-            this.comboSucursal.SelectedIndexChanged += new System.EventHandler(this.comboSucursal_SelectedIndexChanged);
-            // 
-            // labelSucursal
-            // 
-            this.labelSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSucursal.AutoSize = true;
-            this.labelSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSucursal.ForeColor = System.Drawing.Color.White;
-            this.labelSucursal.Location = new System.Drawing.Point(1050, 146);
-            this.labelSucursal.Name = "labelSucursal";
-            this.labelSucursal.Size = new System.Drawing.Size(80, 22);
-            this.labelSucursal.TabIndex = 25;
-            this.labelSucursal.Text = "Sucursal";
-            // 
-            // bottonExcel
-            // 
-            this.bottonExcel.BackColor = System.Drawing.Color.DimGray;
-            this.bottonExcel.Image = ((System.Drawing.Image)(resources.GetObject("bottonExcel.Image")));
-            this.bottonExcel.Location = new System.Drawing.Point(1930, 137);
-            this.bottonExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bottonExcel.Name = "bottonExcel";
-            this.bottonExcel.Size = new System.Drawing.Size(66, 57);
-            this.bottonExcel.TabIndex = 49;
-            this.bottonExcel.UseVisualStyleBackColor = false;
-            this.bottonExcel.Click += new System.EventHandler(this.bottonExcel_Click);
             // 
             // itemCode
             // 
@@ -294,14 +187,118 @@
             this.completo.Name = "completo";
             this.completo.Width = 150;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Analisis_Reabastecimiento.Properties.Resources.LOGO_HD24;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 76);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelFecha
+            // 
+            this.labelFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.ForeColor = System.Drawing.Color.White;
+            this.labelFecha.Location = new System.Drawing.Point(359, 95);
+            this.labelFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(94, 15);
+            this.labelFecha.TabIndex = 19;
+            this.labelFecha.Text = "Fecha de Folios";
+            this.labelFecha.Click += new System.EventHandler(this.fechaFinalLabel_Click);
+            // 
+            // dateTimePicker1Form2
+            // 
+            this.dateTimePicker1Form2.Location = new System.Drawing.Point(458, 95);
+            this.dateTimePicker1Form2.Name = "dateTimePicker1Form2";
+            this.dateTimePicker1Form2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1Form2.TabIndex = 20;
+            this.dateTimePicker1Form2.ValueChanged += new System.EventHandler(this.dateTimePicker1Form2_ValueChanged);
+            // 
+            // labelFolios
+            // 
+            this.labelFolios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFolios.AutoSize = true;
+            this.labelFolios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFolios.ForeColor = System.Drawing.Color.White;
+            this.labelFolios.Location = new System.Drawing.Point(931, 96);
+            this.labelFolios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelFolios.Name = "labelFolios";
+            this.labelFolios.Size = new System.Drawing.Size(40, 15);
+            this.labelFolios.TabIndex = 21;
+            this.labelFolios.Text = "Folios";
+            // 
+            // comboBoxFolios
+            // 
+            this.comboBoxFolios.FormattingEnabled = true;
+            this.comboBoxFolios.Location = new System.Drawing.Point(977, 94);
+            this.comboBoxFolios.Name = "comboBoxFolios";
+            this.comboBoxFolios.Size = new System.Drawing.Size(130, 21);
+            this.comboBoxFolios.TabIndex = 22;
+            this.comboBoxFolios.SelectedIndexChanged += new System.EventHandler(this.comboBoxFolios_SelectedIndexChanged);
+            // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.Location = new System.Drawing.Point(1256, 165);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
+            this.buttonGuardar.TabIndex = 23;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
+            // 
+            // comboSucursal
+            // 
+            this.comboSucursal.FormattingEnabled = true;
+            this.comboSucursal.Location = new System.Drawing.Point(759, 94);
+            this.comboSucursal.Name = "comboSucursal";
+            this.comboSucursal.Size = new System.Drawing.Size(130, 21);
+            this.comboSucursal.TabIndex = 24;
+            this.comboSucursal.SelectedIndexChanged += new System.EventHandler(this.comboSucursal_SelectedIndexChanged);
+            // 
+            // labelSucursal
+            // 
+            this.labelSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSucursal.AutoSize = true;
+            this.labelSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSucursal.ForeColor = System.Drawing.Color.White;
+            this.labelSucursal.Location = new System.Drawing.Point(700, 95);
+            this.labelSucursal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSucursal.Name = "labelSucursal";
+            this.labelSucursal.Size = new System.Drawing.Size(55, 15);
+            this.labelSucursal.TabIndex = 25;
+            this.labelSucursal.Text = "Sucursal";
+            // 
+            // bottonExcel
+            // 
+            this.bottonExcel.BackColor = System.Drawing.Color.DimGray;
+            this.bottonExcel.Image = ((System.Drawing.Image)(resources.GetObject("bottonExcel.Image")));
+            this.bottonExcel.Location = new System.Drawing.Point(1287, 89);
+            this.bottonExcel.Name = "bottonExcel";
+            this.bottonExcel.Size = new System.Drawing.Size(44, 37);
+            this.bottonExcel.TabIndex = 49;
+            this.bottonExcel.UseVisualStyleBackColor = false;
+            this.bottonExcel.Click += new System.EventHandler(this.bottonExcel_Click);
+            // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(2014, 1111);
+            this.ClientSize = new System.Drawing.Size(1363, 690);
             this.Controls.Add(this.bottonExcel);
             this.Controls.Add(this.labelSucursal);
             this.Controls.Add(this.comboSucursal);
@@ -313,7 +310,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1From2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form2";
             this.Text = "Revision de Pedido";
             this.Load += new System.EventHandler(this.Form2_Load);
