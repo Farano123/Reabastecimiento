@@ -144,7 +144,8 @@ namespace Analisis_Reabastecimiento
                 dataGridView1.Refresh();
                 comboBasico.SelectedIndex = -1;
                 checkedListBoxClasificador.ClearSelected(); // Limpiar la selección del CheckedListBox
-
+                //comboCategorias
+                string categoria_ = comboCategorias.Text;
                 dataGridView2.Hide(); // Ocultar el DataGridView si es necesario
 
                 // Obtener las fechas del DateTimePicker
@@ -163,7 +164,7 @@ namespace Analisis_Reabastecimiento
                     this.Invoke(new Action(() =>
                     {
                         // Llamar a la función que carga los datos en el DataGridView
-                        testNewDatabase(fechaInicial, fechaFinal, diff2);
+                        testNewDatabase(fechaInicial, fechaFinal, diff2, categoria_);
                     }));
                 });
 
@@ -491,19 +492,77 @@ namespace Analisis_Reabastecimiento
         // FUNCION QUE LLAMA LA STORED PROCEDURE spNvoDinamico_2 LA CUAL ES LA NUEVA STORED PROCEDURE LA CUAL QUE CONTIENE TODA LA INFORMACION NECESARIA POR EL DATAGRIDVIEW
 
         // SE CAMBIO VENTA TOTAL POR VENTA PROMEDIO MENSUAL HACIENDO EL CALCULO PZA/DIAS * 30.5
-        private void testNewDatabase(string fechaInicial, string fechaFinal, string diasDeDiferencia)
+        private void testNewDatabase(string fechaInicial, string fechaFinal, string diasDeDiferencia, string categoria)
         {
             string sucursal_ = comboSucursal.Text;
             string categoria_ = comboCategorias.Text;
             string numeroDeProveedor = "";
             string proveedor = "";
             string[] numeroProv = { };
+            string catego = "";
             if (!string.IsNullOrEmpty(comboProvedor.Text))
             {
                 proveedor = comboProvedor.Text;
                 numeroProv = proveedor.Split(' ');
                 numeroDeProveedor = numeroProv[numeroProv.Length - 1].ToString();
             }
+
+            switch(categoria)
+            {
+                case "01-CONSTR Y OBRA NGA":
+                    catego = "125";
+                    break;
+                case "02-PLOMERIA":
+                    catego = "103";
+                    break;
+                case "03-ELECTR E ILUMINAN":
+                    catego = "131";
+                    break;
+                case "04-PISOS Y AZULEJOS":
+                    catego = "106";
+                    break;
+                case "05-MUEBLES P/ BAÑO":
+                    catego = "111";
+                    break;
+                case "06-PINTURAS Y ACC.":
+                    catego = "128";
+                    break;
+                case "07-IMPERMEABILIZANTE":
+                    catego = "110";
+                    break;
+                case "08-MADERAS Y DERIV.":
+                    catego = "124";
+                    break;
+                case "09-PUERTAS Y VENTANA":
+                    catego = "108";
+                    break;                     
+                case "10-HERR. Y EQUIPOS":
+                    catego = "118";
+                    break;
+                case "11-FERR Y TLAPALERIA":
+                    catego = "127";
+                    break;
+                case "12-HOGAR":
+                    catego = "107";
+                    break;
+                case "13-ABARROTES":
+                    catego = "113";
+                    break;
+                case "14-JARDINERIA":
+                    catego = "104";
+                    break;
+                case "15-ART. DE OPORTUN":
+                    catego = "122";
+                    break;
+                case "16-SERVICIOS":
+                    catego = "101";
+                    break;
+                case "17-ART. DE REMATE":
+                    catego = "109";
+                    break;
+            }
+
+           
 
             string ventaAb = "Vta_";
             string venta = ventaAb + sucursal_;
@@ -558,7 +617,8 @@ namespace Analisis_Reabastecimiento
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@FechaD", fechaInicial);
-                        cmd.Parameters.AddWithValue("@FechaA", fechaFinal);
+                        cmd.Parameters.AddWithValue("@FechaA", fechaFinal);  
+                        cmd.Parameters.AddWithValue("@Categoria", catego);
 
                         conn.Open();
                         cmd.CommandTimeout = 100000;
