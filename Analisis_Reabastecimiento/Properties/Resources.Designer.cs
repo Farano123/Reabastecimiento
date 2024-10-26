@@ -93,6 +93,16 @@ namespace Analisis_Reabastecimiento.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LOGO_CB___FONDO_AZUL_3 {
+            get {
+                object obj = ResourceManager.GetObject("LOGO CB - FONDO AZUL 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGO_HD24 {
             get {
                 object obj = ResourceManager.GetObject("LOGO HD24", resourceCulture);

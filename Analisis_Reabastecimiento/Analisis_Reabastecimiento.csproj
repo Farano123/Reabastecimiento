@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="business_inventory_maintenance_product_box_boxes_2326.ico" />
+    <None Include="Resources\LOGO CB - FONDO AZUL 3.jpg" />
     <None Include="Resources\loading.gif" />
     <None Include="Resources\8p7m.gif" />
     <None Include="Resources\business_inventory_maintenance_product_box_boxes_2326.ico" />
